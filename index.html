@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div style="display: flex;">
+      <div style="font-size: 30px; text-align: center; padding-top: 50px;">
+        2022年1月1日まで
+      </div>
+      <div style="font-size: 40px; text-align: center; padding-top: 40px;">
+        あと
+      </div>
+      <div
+        id="countVal"
+        style="
+          font-size: 100px;
+          text-align: center;
+          border-bottom: 5px solid red;
+        "
+      >
+        110
+      </div>
+      <div style="font-size: 40px; text-align: center; padding-top: 40px;">
+        秒
+      </div>
+    </div>
+    <div
+      id="baisu3"
+      style="
+        font-size: 30px;
+        text-align: center;
+        color: lightblue;
+        margin-top: 40px;
+      "
+    ></div>
+
+    <div
+      id="ajenda"
+      style="font-size: 20px; text-align: center; margin-top: 50px;"
+    >
+      【本日のアジェンダ】
+    </div>
+    <div
+      style="
+        font-size: 16px;
+        text-align: left;
+        padding-top: 40px;
+        margin-left: 300px;
+      "
+    >
+      <ul>
+        <li>Zoomで年越しってあり？それともなし？</li>
+        <li>今年の反省、来年の抱負</li>
+        <li>あなたの今年イチバンの出来事は？</li>
+        <li>恋愛話したい人いる？</li>
+        <li>【企画】面白ツイートを探せ！</li>
+        <li>【企画】ツイッターのトレンドを予想せよ！</li>
+        <li>【企画】モテるって本当？あの方に聞いてみよう！</li>
+        <li>その他、皆さんからのご意見募集中！！！！！</li>
+      </ul>
+    </div>
+
+    <div
+      id="txt"
+      style="
+        font-size: 30px;
+        text-align: center;
+        color: blue;
+        margin-top: 40px;
+      "
+    ></div>
+
+    <script type="text/javascript">
+      function set2fig(num) {
+        // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+        var ret;
+        if (num < 10) {
+          ret = "0" + num;
+        } else {
+          ret = num;
+        }
+        return ret;
+      }
+      function showClock2() {
+        const dispVal = document.getElementById("countVal").innerHTML;
+        const iCountVal = dispVal - 1;
+        document.getElementById("countVal").innerHTML = iCountVal;
+
+        if (iCountVal % 4 == 0) {
+          document.getElementById("baisu3").innerHTML = "かしラジ放送中...";
+        } else if (iCountVal % 4 == 1) {
+          document.getElementById("baisu3").innerHTML = "かしラジ放送中..";
+        } else if (iCountVal % 4 == 2) {
+          document.getElementById("baisu3").innerHTML = "かしラジ放送中.";
+        } else {
+          document.getElementById("baisu3").innerHTML = "かしラジ放送中";
+        }
+
+        if (iCountVal % 2 == 0) {
+          document.getElementById("ajenda").innerHTML =
+            "　【本日のアジェンダ】★(2021年12月31日23時〜)";
+        } else {
+          document.getElementById("ajenda").innerHTML =
+            "★【本日のアジェンダ】　(2021年12月31日23時〜)";
+        }
+
+        if (iCountVal % 12 == 0) {
+          document.getElementById("txt").innerHTML =
+            "今年もお疲れさまでした＼(^ω^)／";
+        } else if (iCountVal % 12 == 1) {
+          document.getElementById("txt").innerHTML = "今年もお疲れさまでした";
+        } else if (iCountVal % 12 == 2) {
+          document.getElementById("txt").innerHTML = "今年もお疲れさまでし";
+        } else if (iCountVal % 12 == 3) {
+          document.getElementById("txt").innerHTML = "今年もお疲れさまで";
+        } else if (iCountVal % 12 == 4) {
+          document.getElementById("txt").innerHTML = "今年もお疲れさま";
+        } else if (iCountVal % 12 == 5) {
+          document.getElementById("txt").innerHTML = "今年もお疲れさ";
+        } else if (iCountVal % 12 == 6) {
+          document.getElementById("txt").innerHTML = "今年もお疲れ";
+        } else if (iCountVal % 12 == 7) {
+          document.getElementById("txt").innerHTML = "今年もお疲";
+        } else if (iCountVal % 12 == 8) {
+          document.getElementById("txt").innerHTML = "今年もお";
+        } else if (iCountVal % 12 == 9) {
+          document.getElementById("txt").innerHTML = "今年も";
+        } else if (iCountVal % 12 == 10) {
+          document.getElementById("txt").innerHTML = "今年";
+        } else {
+          document.getElementById("txt").innerHTML = "今";
+        }
+      }
+      setInterval("showClock2()", 1000);
+    </script>
+  </body>
+</html>
